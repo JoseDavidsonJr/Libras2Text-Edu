@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  Libras2text-api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: Libras2text_EDU
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - OMP_NUM_THREADS=4
+      - ONNX_NUM_THREADS=4
+    deploy:
+      resources:
+        limits:
+          memory: 4096M
+          cpus: '3.0'
+        reservations:
+          memory: 1024M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
