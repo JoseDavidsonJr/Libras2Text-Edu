@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+.venv/
+*.onnx
+*.pt
+*.h5
+*.csv
+dataset/
+logs/
+.vscode/
+.idea/
