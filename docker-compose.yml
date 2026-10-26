@@ -1,11 +1,10 @@
-version: '3.8'
-
 services:
-  Libras2text-api:
+  libras2text-api:
     build:
       context: ./server
       dockerfile: Dockerfile
-    container_name: Libras2text_EDU
+    image: libras2text-api:latest
+    container_name: libras2text_api
     restart: unless-stopped
     ports:
       - "8000:8000"
